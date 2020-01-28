@@ -1,0 +1,5 @@
+@media only screen and (max-width: 1600px){
+	.races_for_bets{
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}

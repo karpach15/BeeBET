@@ -1,0 +1,1600 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Sulphur Point', 'Jura', sans-serif;
+}
+
+button, input, textarea{
+	font-family: 'Sulphur Point', 'Jura', sans-serif;	
+}
+
+button{
+	border: none;
+	background: transparent;
+}
+
+a{
+	text-decoration: none;
+	cursor: pointer;
+	color: wihte;
+}
+
+p{
+	margin: 0;
+	font-size: 22pt;
+	color: #857CBE;
+}
+
+h1{
+	color: #E4629E;
+	font-size: 30pt;
+}
+
+h1::after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 100%;
+	background: linear-gradient(160deg, #E46292, #F05F50)
+}
+
+h2{
+	color: #1DCEBD;
+	font-size: 23pt;
+	margin: 0;
+}
+
+h3{
+	color: #4499A6;
+	font-size: 20pt;
+	margin: 0;
+}
+
+input, textarea{
+	border: none;
+	border-bottom: solid 5px #F05F50;
+}
+
+.account_pic_url{
+	display: none;
+}
+
+header{
+	margin: 0;
+	padding: 0;
+	width: 90%;
+	margin: 0 auto;
+}
+
+menu::before{
+	content: '';
+	display: block;
+	position: absolute;
+	top: -35px;
+	left: -10px;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #A178FA, #42B6DD);
+}
+
+menu{
+	position: relative;
+	padding: 0;
+	margin: 0 auto;
+	margin-top: 70px;
+	height: 200px;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #26ABD8, #5F84DC);
+}
+
+menu::after{
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -35px;
+	right: -10px;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #5988DB, #CFFA93);
+	z-index: 1;
+}
+
+menu .btns{
+	transform: translateY(70px);
+	width: 80%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+}
+
+.menu_btn{
+	color: #90E48F;
+	font-size: 35pt;
+	text-decoration: none;
+	text-align: center;
+}
+
+header .profile{
+	position: absolute;
+	right: 60px;
+	top: 35px;
+	height: 75px;
+	width: 75px;
+	box-shadow: 0 0 2px 3px white;
+	border-radius: 50%;
+}
+
+/*header .profile::after{
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 80px;
+	right: 70px;
+	height: 75px;
+	width: 75px;
+	border-radius: 50%;
+	background: url(../main/img/profile_icon.png) no-repeat center top / cover;
+	box-shadow: 0 0 2px 3px white;
+	z-index: 0;
+}*/
+
+menu .active{
+	color: #E46292;
+}
+
+menu .active:after{
+	content: '';
+	display: block;
+	height: 5px;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 30px 30px 30px 30px;
+	background: linear-gradient(160deg, #A178FA, #26ABD8, #CFFA93);
+	opacity: 1;
+}
+
+menu .active:before{
+	content: '';
+	display: block;
+	height: 5px;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 5px;
+	background: linear-gradient(160deg, #A178FA, #26ABD8, #CFFA93);
+	opacity: 1;
+}
+
+.menu_btn:before{
+	content: '';
+	display: block;
+	height: 5px;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 30px 30px 30px 30px;
+	background: linear-gradient(160deg, #A178FA, #26ABD8, #CFFA93);
+	opacity: 0;
+	transition: 0.3s;
+}
+
+.menu_btn:hover:before{
+	content: '';
+	display: block;
+	height: 15px;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 5px;
+	background: linear-gradient(160deg, #A178FA, #26ABD8, #CFFA93);
+	opacity: 1;
+	transition: 0.3s;
+}
+
+.notification{
+	display: grid;
+	margin-top: 50px; 
+	grid-template-columns: 1fr 400px;
+	grid-template-rows: 400px;
+	grid-gap: 20px;
+}
+
+.notification .info{
+	background: linear-gradient(135deg, #F0E85F, #B3F076);
+	border-radius: 30px;
+	padding: 0 2em;
+}
+
+.notification .img_border{
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.notification .img{
+	margin: 0 auto;
+	transform: translateY(2.5%);
+	box-shadow: inset 0 0 10px 5px rgba(38,171,216, 0.7);
+	border-radius: 50%;
+	height: 95%;
+	width: 95%;
+	background: url(https://avatars.mds.yandex.net/get-zen_doc/1361478/pub_5b72c9b6a4073700a94ad368_5b72cab6bf110c00a8ba611a/scale_1200) no-repeat center top / cover
+}
+
+.fast_functions{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 20px;
+}
+
+section{
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.function .img_background{
+	position: relative;
+	height: 230px;
+	width: 230px;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	background: linear-gradient(135deg, #FF5546, #FFA08B);
+}
+
+.function .img{
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	right: 15px;
+	left: 15px;
+	border-radius: 50%; 
+}
+
+#function_img_1{
+	background: url(../main/img/bet_icon.png) no-repeat center center / cover;
+}
+
+#function_img_2{
+	background: url(../main/img/register_icon.png) no-repeat center center / cover;
+}
+
+#function_img_3{
+	background: url(../main/img/drivers_icon.png) no-repeat center center / cover;
+}
+
+.function .content{
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	height: 340px;
+	border-radius: 30px;
+	padding: 2.5em 1.5em;
+	padding-bottom: 0.5em; 
+	text-align: center;
+}
+
+.function .info{
+	height: 200px;
+}
+
+.function .info p{
+	color: #fff;
+	font-size: 16pt;
+}
+
+.function .btn{
+	margin: 0 auto;
+	margin-top: 25px;
+	height: 60px;
+	width: 80%;
+	background: linear-gradient(135deg, #FFC38B, #FFDBA0);
+	border-radius: 30px;
+	font-size: 25pt;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 60px;
+	overflow: hidden;
+}
+
+.function .btn a{
+	position: relative;
+	display: block;
+	color: #06A07C;
+	transition: 0.3s;
+}
+
+.function .btn:hover a{
+	transform: translateX(-35px);
+	transition: 0.3s;
+}
+
+.function .btn a::after{
+	content: ' >';
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 30px;
+	opacity: 0;
+	transition: 0.15s;
+}
+
+.function .btn:hover a::after{
+	content: ' >';
+	display: block;
+	width: 30px;
+	opacity: 1;
+	transition: 0.3s;
+}
+
+.drivers{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: repeat(auto-fill, 450px);
+	grid-gap: 50px;
+}
+
+.drivers .driver{
+	position: relative;
+	display: grid;
+	height: 450px;
+	grid-template-rows: 200px 200px;
+	grid-gap: 20px;
+	transform: translateY(30px);
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.False{
+	display: none;
+}
+
+.drivers .driver::before{
+	position: absolute;
+	content: '';
+	display: block;
+	background: linear-gradient(135deg, #B8B8B8, #F3F3F3);
+	border-radius: 30px;
+	top: -5px;
+	bottom: -5px;
+	left: -5px;
+	right: -5px;
+	z-index: -1;
+	transform: translateY(-30px);
+}
+
+.drivers .driver:hover{
+	transform: translateY(30px) scale(1.1);
+	transition: 0.3s;
+}
+
+.driver .img_background, .bet_confirm .img_border{
+	position: relative;
+	margin: 0 auto;
+	width: 200px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #FF5546, #FFA08B);
+}
+
+.driver .img, .bet_confirm .img{
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	border-radius: 50%;
+	background: url("../main/img/profile_icon.png") no-repeat center top;
+}
+
+.driver .img::after, .bet_confirm .img::after{
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0 auto;
+	border-radius: 50%;
+	box-shadow: inset 0 0 10px 5px  #FF5546;
+}
+
+.driver .info{
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	border-radius: 30px;
+	height: 115px;
+	padding: 1em 3em;
+}
+
+.driver .description{
+	position: absolute;
+	display: none;
+}
+
+.driver .info h2{
+	font-size: 28pt;
+}
+
+.driver .info h2:nth-child(2n){
+	color: white;
+}
+
+.driver .info h2:nth-child(2n)::after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 100%;
+	background: linear-gradient(160deg, #E46292, #F05F50)
+}
+
+.driver .about p{
+	color: white;
+}
+
+.driver .about{
+	position: relative;
+}
+
+.driver .about p::before{
+	content: 'About: ';
+	display: block;
+	position: absolute;
+	top: -40px;
+	color: #DBDBDB;
+}
+
+.driver_reg_info{
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 400px;
+    grid-gap: 20px;
+}
+
+.driver_reg_info .info{
+    background: linear-gradient(135deg, #F0E85F, #B3F076);
+    border-radius: 30px;
+    padding: 0 2em;
+}
+
+.driver_reg_info .img_border{
+    background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.driver_reg_info .img{
+    margin: 0 auto;
+    transform: translateY(2.5%);
+    box-shadow: inset 0 0 10px 5px rgba(38,171,216, 0.7);
+    border-radius: 50%;
+    height: 95%;
+    width: 95%;
+    background: url(https://st4.depositphotos.com/6975596/28987/i/450/depositphotos_289870658-stock-photo-filling-application-form-for-job.jpg) no-repeat center top / cover;
+}
+
+#driver_reg{
+	display: block;
+}
+
+.driver_reg_img{
+	height: 100%;
+	background: url(../main/img/add_driver_icon.png) no-repeat center center;
+	background-size: 200px;
+	transform: translateY(-40px);
+}
+
+.driver_reg_form{
+	margin-top: 30px;
+	height: 900px;
+	background: linear-gradient(135deg, #E4E4E4, #ECEFE7);
+	border-radius: 30px;
+}
+
+.driver_reg_form form{
+	transform: translateY(40px);
+}
+
+.name{
+	display: grid;
+	margin: 0 auto;
+	width: 95%;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 30px;
+}
+
+.name input{
+	width: 100%;
+}
+
+input, textarea{
+	display: block;
+	margin: 0 auto;
+	height: 70px;
+	width: 95%;
+	margin-top: 30px;
+	font-size: 22pt;
+	color: #26ABD8;
+	background: transparent;
+}
+
+input::-ms-input-placeholder, .driver_reg_form textarea::-ms-input-placeholder{
+	color: #E46292;
+}
+
+textarea{
+	height: 240px;
+}
+
+.file_attach{
+	display: grid;
+	width: 95%;
+	margin: 0 auto;
+	grid-template-columns: 2.5fr 1fr;
+	grid-gap: 60px;
+}
+
+.file_attach input{
+	width: 100%;
+}
+
+.file_attach input:nth-child(2){
+	border: none;
+	padding: 0;
+	color: #fff;
+	font-size: 25pt;
+	background: linear-gradient(160deg, #E46292, #F05F50);
+	border-radius: 30px;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.file_attach input:nth-child(2):hover{
+	color: #D9E13F;
+	transition: 0.5s;
+}
+
+#submit, #account_register{
+	width: 350px;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s;
+	border: none;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+}
+
+#submit:hover, #account_register:hover{
+	color: #E91E63;
+	transition: 0.5s;
+}
+
+.race{
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	grid-gap: 30px; 
+	height: 300px;
+	border-radius: 30px;
+}
+
+.race .info{
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	background: linear-gradient(135deg, #F0E85F, #B3F076);
+	border-radius: 30px;
+	padding-left: 20px; 
+	padding-top: 20px; 
+}
+
+.race .img_border{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+}
+
+.race .img{
+	height: 285px;
+	width: 285px;
+	border-radius: 30px;
+	background: url(https://st3.depositphotos.com/6791068/19226/v/1600/depositphotos_192267982-stock-illustration-city-map-of-an-imaginary.jpg) no-repeat center top / cover;
+}
+
+.race .info span{
+	color: #E91E63;
+}
+
+.drivers_list_btn{
+	color: #E91E63;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.races_for_bets{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: repeat(auto-fill, 450px);
+	grid-gap: 50px;
+}
+
+.races_for_bets button{
+	cursor: pointer;
+}
+
+.races_for_bets .race_for_bets{
+	position: relative;
+	display: grid;
+	height: 450px;
+	grid-template-rows: 200px 200px;
+	grid-gap: 20px;
+	transform: translateY(30px);
+	transition: 0.3s;
+}
+
+
+.races_for_bets .race_for_bets::before{
+	position: absolute;
+	content: '';
+	display: block;
+	background: linear-gradient(135deg, #B8B8B8, #F3F3F3);
+	border-radius: 30px;
+	top: -5px;
+	bottom: -5px;
+	left: -5px;
+	right: -5px;
+	z-index: -1;
+	transform: translateY(-30px);
+}
+
+.races_for_bets .race_for_bets:hover{
+	transform: translateY(30px) scale(1.1);
+	transition: 0.3s;
+}
+
+.race_for_bets .img_background{
+	position: relative;
+	margin: 0 auto;
+	width: 200px;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+}
+
+.race_for_bets .img{
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	border-radius: 30px;
+	background: url(https://st3.depositphotos.com/6791068/19226/v/1600/depositphotos_192267982-stock-illustration-city-map-of-an-imaginary.jpg) no-repeat center top / cover;
+}
+
+.race_for_bets .info{
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	border-radius: 30px;
+	height: 150px;
+	padding: 1em 3em;
+}
+
+.race_for_bets .info h2{
+	font-size: 28pt;
+}
+
+.race_for_bets .info h2:nth-child(2){
+	color: #fff;
+}
+
+.race_for_bets .info h2:nth-child(1)::after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 100%;
+	background: linear-gradient(160deg, #E46292, #F05F50);
+}
+
+.reg_result{
+	display: flex;
+	height: 800px;
+	width: 1000px;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #E4E4E4, #ECEFE7);
+	border-radius: 30px;
+}
+
+.reg_result .img{
+	height: 200px;
+	width: 200px;
+	margin: 0 auto;
+	background: url(https://icon-library.net/images/success-icon/success-icon-5.jpg) no-repeat center top / cover;
+}
+
+.reg_result .info p{
+	margin-top: 25px; 
+	text-align: center;
+}
+
+.reg_result .info p span{
+	color: #F33838;
+	font-weight: bold;
+}
+
+.home_btn{
+	display: block;
+	height: 100px;
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 35px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+	border: none;
+	border-radius: 30px;
+	color: white;
+	font-size: 26pt;
+	cursor: pointer;
+	text-align: center;
+	transition: 0.5s;
+}
+
+.decline{
+	background: linear-gradient(135deg, #F3394C, #F35B5B) !important;
+}
+
+.decline:hover{
+	color: #F3CA51 !important;
+}
+
+.home_btn:hover{
+	color: #E91E63;
+	transition: 0.5s;
+}
+
+.bet_conf_section{
+	position: relative;
+	width: 100%;
+}
+
+.bet_confirm{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 600px;
+	border-radius: 30px;
+}
+
+.bet_confirm .drivers{
+	margin-right: 380px;
+	margin-left: 30px;
+}
+
+
+.bet_confirm .coeficient{
+	margin: 0 auto;
+	height: 50px;
+	width: 120px;
+	cursor: default;
+	color: #9084F5;
+	background: linear-gradient(135deg, #F0E85F, #B3F076);
+	border-radius: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 24pt;
+	line-height: 60px;
+	margin-top: 30px;
+}
+
+.bet_confirm form{
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 350px;
+	right: 0;
+	margin-top: 20px;
+	text-align: center;
+	height: 100%;
+	background: linear-gradient(135deg, #A178FA, #42B6DD);
+	border-radius: 30px 0 0 30px;
+}
+
+.bet_confirm form .content{
+	height: 550px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.bet_confirm form .pay{
+	margin-top: 70px;
+}
+
+.bet_confirm .choosed{
+	transform: translateY(30px) scale(1.1);
+}
+
+.bet_confirm h4{
+	font-size: 15pt;
+	margin: 0;
+	margin-bottom: 5px; 
+}
+
+.bet_confirm form .bet_select{
+	width: 120px;
+	height: 60px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+	border-radius: 30px;
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 22pt;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	display: inline;
+}
+
+.bet_confirm form .euro_sym{
+	position: relative;
+}
+
+.bet_confirm form .euro_sym::after{
+	content: '€';
+	position: absolute;
+	right: 12px;
+	bottom: -8px;
+	width: 20px;
+	color: #fff;
+	font-size: 22pt;
+}
+
+.bet_confirm form .payment_type{
+	height: 15px;
+	width: 15px;
+	margin: 0;
+	display: inline;
+}
+
+.bet_confirm form .payment_type_text{
+	font-size: 20pt;
+	color: #fff;
+}
+
+.bet_confirm #submit{
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.account_header{
+	margin-top: 50px;
+	height: 430px;
+	border-radius: 30px;
+	display: grid;
+	grid-template-columns: 350px 1fr;
+	grid-gap: 50px;
+}
+
+.pic_block{
+	display: grid;
+	grid-template-rows: 1fr 60px;
+	grid-gap: 20px;
+}
+
+.account_header .img_border{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+}
+
+.account_header .account_img{
+	height: 330px;
+	width: 330px;
+	border-radius: 30px;
+	background: url(../main/img/profile_icon.png) no-repeat center top / cover;
+}
+
+.exit{
+	height: 60px;
+	width: 100%;
+	background: linear-gradient(135deg, #E46292, #F05F50);
+	border-radius: 30px;
+	text-align: center;
+	font-size: 34pt;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.exit:hover{
+	transform: scale(1.05);
+	transition: 0.3s;
+}
+
+.account_header .account_fullname{
+	position: relative;
+	background: linear-gradient(135deg, #A178FA, #42B6DD);
+	border-radius: 30px;
+	padding-left: 10px;
+	padding-top: 140px;
+}
+
+.account_header .account_fullname h2{
+	font-size: 50pt;
+	cursor: default;
+	margin: 0;
+}
+
+.account_header .account_fullname h2:nth-child(2){
+	color: #fff;
+}
+
+.account_header .account_fullname h2:nth-child(2):after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 98%;
+	border-radius: 30px;
+	background: linear-gradient(160deg, #E46292, #F05F50);
+}
+
+.register{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #B8B8B8, #F3F3F3);
+	border-radius: 30px;
+}
+
+.register .content{
+	display: block;
+	width: 100%;
+	height: 1050px;
+}
+
+.login_password{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 30px;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.login_password input{
+	display: block;
+	width: 100%;
+}
+
+.login{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #B8B8B8, #F3F3F3);
+	border-radius: 30px;
+}
+
+.login .content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 500px;
+}
+
+.login form{
+	display: block;
+	height: 450px;
+	width: 800px;
+}
+
+.login .login_password{
+	display: block;
+}
+
+.login .login_password input{
+	display: block;
+}
+
+.login_register{
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-gap: 10px;
+	margin-top: 70px;
+}
+
+#login{
+	width: 350px;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s;
+	border: none;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+	width: 100%;
+}
+
+#login:hover{
+	color: #E91E63;
+	transition: 0.5s;
+}
+
+.login #account_create{
+	border: none;
+	padding: 0;
+	color: #fff;
+	font-size: 25pt;
+	background: linear-gradient(160deg, #E46292, #F05F50);
+	border-radius: 30px;
+	transition: 0.5s;
+	cursor: pointer;
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.login #account_create:hover{
+	color: #D9E13F;
+	transition: 0.5s;
+}
+
+.popUp{
+	background-color: rgba(0, 0, 0, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	display: none;
+	z-index: 2;
+}
+
+.pop_cont{
+	position: fixed;
+	top: 45px;
+	height: 90%;
+	width: 80%;
+	margin: 0 auto;
+	background: linear-gradient(135deg, #E4E4E4, #ECEFE7);
+	border-radius: 30px;
+	position: relative;
+	z-index: 2;
+}
+
+.popUp .content{
+	height: 100%;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.driver_details{
+	position: relative;
+	height: 90%;
+	width: 95%;
+	margin: 0 auto;
+	top: 45px;
+}
+
+.driver_details .header{
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	grid-gap: 20px;
+}
+
+.driver_details .img_background{
+	position: relative;
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+}
+
+.driver_details .img{
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	right: 10px;
+	left: 10px;
+	border-radius: 50%;
+	background: url(https://sun9-16.userapi.com/c857736/v857736874/cc370/JWBs5-olKB4.jpg?ava=1) no-repeat top center / cover;
+}
+
+.driver_details .img::before{
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0 auto;
+	border-radius: 50%;
+	box-shadow: inset 0 0 10px 5px #26ABD8;
+}
+
+.driver_details .name{
+	display: block;
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	border-radius: 30px;
+	padding: 95px 0 0 35px;
+}
+
+.driver_details .name h2{
+	font-size: 50pt;
+}
+
+.driver_details .name h2:nth-child(2n){
+	color: white;
+}
+
+.driver_details .name h2:nth-child(2n)::after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 98%;
+	border-radius: 30px;
+	background: linear-gradient(160deg, #E46292, #F05F50)
+}
+
+.driver_details .info{
+	display: grid;
+	grid-template-columns: 500px 1fr;
+	grid-gap: 20px;
+	margin-top: 20px;
+	height: 430px;
+	background: linear-gradient(135deg, #F0E85F, #B3F076);
+	border-radius: 30px;
+	padding: 15px;
+}
+
+.driver_details .main, .account_info .main{
+	line-height: 80px;
+}
+
+.account_info .main h3{
+	color: #EDC33A;
+}
+
+.driver_details .main span, .account_info .main span{
+	color: #E91E63;
+}
+
+.driver_details .about h4, .account_info h4{
+	margin: 0;
+	padding: 0;
+	font-size: 20pt;	
+}
+
+.driver_details .about h4::after, .account_info h4::after{
+	content: '';
+	display: block;
+	height: 3px;
+	width: 100%;
+	border-radius: 30px;
+	background: linear-gradient(160deg, #E46292, #F05F50)
+}
+
+.race_name{
+	padding-left: 20px;
+	font-size: 26pt;
+	color: ;
+}
+
+.race_details{
+	position: relative;
+	height: 90%;
+	width: 75%;
+	margin: 0 auto;
+	top: 45px;
+}
+
+.race .info{
+	position: relative;
+}
+
+#time_before_race{
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 30pt;
+	color: #9498F3;
+	margin: 0;
+	margin-left: 15px;
+}
+
+.race_details .header{
+	display: grid;
+	grid-template-columns: 150px 1fr;
+	grid-gap: 20px;
+}
+
+.race_details .img_background{
+	position: relative;
+	height: 150px;
+	width: 150px;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+}
+
+.race_details .img{
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	right: 10px;
+	left: 10px;
+	border-radius: 30px;
+	background: url(https://st3.depositphotos.com/6791068/19226/v/1600/depositphotos_192267982-stock-illustration-city-map-of-an-imaginary.jpg) no-repeat top center / cover;
+}
+
+.race_details .race_name{
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	border-radius: 30px;
+	padding-left: 35px;
+	padding-top: 60px;
+}
+
+.race_details .race_name h2{
+	font-size: 50pt;
+}
+
+.race_details .drivers_list{
+	grid-gap: 20px;
+	margin-top: 20px;
+	height: 90%;
+	background: linear-gradient(135deg, #F0E85F, #B3F076);
+	border-radius: 30px;
+	padding: 15px;
+	overflow-y: auto;
+}
+
+.race_details .driver{
+	font-size: 45pt;
+	text-align: center;
+}
+
+
+
+.close{
+	color: #E91E63;
+	position: absolute;
+	right: 30px;
+	top: 25px;
+	font-size: 46pt;
+	cursor: pointer;
+	transform: rotate(45deg);
+	line-height: 22px;
+	z-index: 1;
+	transition: 0.3s;
+}
+
+.close:hover{
+	color: #3663F6;
+	transform: scale(1.1) rotate(-45deg);
+	transition: 0.3s;
+}
+
+footer{
+	margin-top: 95px;
+	height: 120px;
+	background: linear-gradient(135deg, #59597D, #6D6D7D);
+}
+
+footer::before{
+	content: '';
+	display: block;
+	height: 60px;
+	background: linear-gradient(135deg, #59597D, #6D6D7D);
+	border-radius: 0 100% 0 0;
+	transform: translateY(-100%);
+}
+
+.login form{
+	position: relative;
+}
+
+.login form label{
+	position: absolute;
+	left: -150px;
+	transform: translateY(20px);
+}
+
+#login{
+	height: 70px;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.5s;
+	border: none;
+	border-radius: 30px;
+	background: linear-gradient(135deg, #A178FA, #26ABD8, #CFFA93);
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+	width: 100%;
+	font-size: 25pt;
+	text-align: center;
+}
+
+#login:hover{
+	color: #E91E63;
+	transition: 0.5s;
+}
+
+.no_user .info{
+	margin-top: 70px;
+	height: 370px;
+	background: linear-gradient(135deg, #E4E4E4, #ECEFE7);
+	border-radius: 30px;
+}
+
+.no_user h1{
+	text-align: center;
+}
+
+.no_user a{
+	display: block;
+	width: 30%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#account_create{
+	border: none;
+	padding: 0;
+	color: #fff;
+	font-size: 25pt;
+	background: linear-gradient(160deg, #E46292, #F05F50);
+	border-radius: 30px;
+	transition: 0.5s;
+	cursor: pointer;
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+}
+
+#account_create:hover{
+	color: #D9E13F;
+	transition: 0.5s;
+}
+
+.driving_license{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.driving_license input{
+	display: inline;
+	height: 15pt;
+	width: 15pt;
+}
+
+.driving_license span{
+	margin-left: 15px;
+	font-size: 25pt;
+}
+
+.account_info .pair:nth-child(1){
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-gap: 50px;
+	height: 350px;
+	margin-bottom: 50px;
+}
+
+.account_info .pair:nth-child(2){
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 50px;
+	min-height: 350px;
+}
+
+.account_info .info{
+	background: linear-gradient(135deg, #29ACD6, #A2B6F5);
+	border-radius: 30px;
+	padding-left: 20px;
+	padding-top: 15px;
+}
+
+.account_info .about{
+	position: relative;
+	background: linear-gradient(135deg, #28ABD9, #73BFD8);
+	border-radius: 30px;
+	padding-top: 15px;
+	padding-left: 15px;
+}
+
+.account_info p{
+	color: #fff;
+}
+
+.edit{
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	display: block;
+	height: 35px;
+	width: 35px;
+	background: url(http://cdn.onlinewebfonts.com/svg/img_147067.png) no-repeat center top / cover;
+	transition: 0.3s;
+}
+
+.edit:hover{
+	transform: scale(1.1);
+	transition: 0.3s;
+}
+
+.edit_form{
+	display: flex;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.edit_form form{
+	width: 100%;
+	height: 60%;
+}
+
+.edit_form .name{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+}
+
+.edit_form textarea{
+	height: 85%;
+	background: #ccc;
+	border-radius: 30px;
+	padding-top: 10px;
+	padding-left: 10px;
+	font-size: 18pt;
+}
+
+.edit_form button{
+	display: block;
+	margin: 0 auto;
+	height: 60px;
+	width: 350px;
+	margin-top: 10px;
+	border-radius: 30px;
+	border: none;
+	background: linear-gradient(135deg, #52D825, #B4ED5E);
+	font-size: 31pt;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.edit_form button:hover{
+	color: #E91E63;
+	transition: 0.3s;
+}
+
+#reg_for_race{
+	display: block;
+	height: 60px;
+	width: 450px;
+	margin-top: 20px;
+	border-radius: 30px;
+	border: none;
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	font-size: 31pt;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#reg_for_race:hover{
+	color: #51ADE2;
+	transition: 0.3s;
+}
+
+#registered_for_race{
+	display: block;
+	height: 40px;
+	width: 350px;
+	margin-top: 20px;
+	border-radius: 30px;
+	border: none;
+	background: linear-gradient(135deg, #FF8B55, #FFC85A);
+	font-size: 20pt;
+	text-align: center;
+	color: #fff;
+	transform: translate(100px, 0) rotate(-15deg);
+}
+
+.error{
+	width: 1300px;
+	height: 600px;
+	background: #ccc;
+	border-radius: 30px;
+	margin: 0 auto;
+	margin-top: 120px;
+	text-align: center;
+}
+
+.upcoming_races{
+	background: linear-gradient(135deg, #28ABD9, #73BFD8);
+	border-radius: 30px;
+	padding-left: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.upcoming_races p{
+	position: relative;
+}
+
+.upcoming_races span{
+	position: absolute;
+	right: 2px;
+	top: 0;
+	display: block;
+	color: #79D319;
+	background: #C9E4E0;
+	border-radius: 30px;
+	height: 35px;
+	width: 160px;
+	text-align: center;
+	transform: rotate(-7deg);
+}
+
+.transaction_history{
+	background: linear-gradient(135deg, #29ACD6, #A2B6F5);
+	border-radius: 30px;
+	padding-left: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.transaction_history p{
+	position: relative;
+	margin-bottom: 25px;
+}
+
+.transaction_history .payment_method{
+	display: block;
+	background: #C9E4E0;
+	border-radius: 30px;
+	font-size: 16pt;
+	width: 220px;
+	color: #E46D3F;
+	text-align: center;
+}
+
+.transaction_history .won{
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	transform: translateX(50%);
+	display: block;
+	background: #A3A5DB;
+	border-radius: 30px;
+	font-size: 16pt;
+	width: 280px;
+	color: #77FF82;
+	text-align: center;
+}
+
+.transaction_history .status{
+	position: absolute;
+	bottom: 0;
+	right: 15px;
+	display: block;
+	background: #DBC896;
+	border-radius: 30px;
+	font-size: 16pt;
+	width: 220px;
+	color: #DB2F35;
+	text-align: center;
+}

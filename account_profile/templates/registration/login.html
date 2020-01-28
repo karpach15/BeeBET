@@ -1,0 +1,22 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header_login.html" %}
+
+<section>
+	<div class="login">
+		<div class="content">
+			<form method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button id="login" type="submit">Войти</button>
+				<a href="{% url 'register' %}"><input id="account_create" value="Создать аккаунт"></a>
+			</form>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

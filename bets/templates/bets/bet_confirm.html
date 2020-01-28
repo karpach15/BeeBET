@@ -1,0 +1,60 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section class="bet_conf_section">
+	<h1 id="race_name">{{race_name}}</h1>
+	<div class="bet_confirm">
+		<div class="drivers">
+			{% for driver in drivers_list %}
+				{% if driver.status == 'True' %}
+					{% for info in accounts_info %}
+						{% if info.login == driver.login %}
+							{% if info.account_name in race.driver_list %}
+								<div class="driver {{driver.status}}">
+									<div class="img_background">
+										<div id="profilePic" class="img" style="background: url({{info.account_pic}}) no-repeat center top / cover"></div>
+									</div>
+									<div class="info">
+										<p style="display: none" id="driver_login">{{info.account_name}} {{info.account_surname}}</p>
+										<h2 id="name">{{info.account_name}}</h2>
+										<h2 id="surname">{{info.account_surname}}</h2>
+										{% if driver.custom_coeficient != 0 %}
+											<div class="coeficient">{{driver.custom_coeficient}}</div>
+										{% endif %}
+										{% if driver.custom_coeficient == 0 %}
+											<div class="coeficient">{{driver.coeficient}}</div>
+										{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<form action="bet_result/" method="POST">
+			{% csrf_token %}
+			<div class="content">
+				<input required class="driver_login" name="driver_login" style="display: none" value="">
+				<input required class="race_name" name="race_name" style="display: none" value="">
+				<input required class="coeficient" name="coeficient" style="display: none" value="">
+				<h4>Выберите победителя и ставку</h4>
+				<p style="color: white" class="driver_login">Победительне выбран</p>
+				<span class="euro_sym"><input name="bet" id="stake" type="number" step="0.1" min="3" value="3.0" class="bet_select"></span>
+				<div class="pay">
+					<h4>Выберите способ оплаты</h4>
+					<input required class="payment_type" type="radio" name="payment_type" value="card"><span class="payment_type_text">Денежный перевод</span><br>
+					<input required class="payment_type" type="radio" name="payment_type" value="cash"><span class="payment_type_text">Наличными</span>
+				</div>
+				<input id="submit" type="submit" name="confirm" value="Подтвердить ставку">
+			</div>
+		</form>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

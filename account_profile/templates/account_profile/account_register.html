@@ -1,0 +1,38 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="register">
+		<div class="content">
+			<form action="{% url 'register' %}" method="POST">{% csrf_token %}
+				<div class="name">
+					<input required name="account_name" type="text" placeholder="Имя">
+					<input required name="account_surname" type="text" placeholder="Фамилия">
+				</div>
+				<div class="login_password">
+					<input required name="login" type="text" placeholder="Логин">
+					<input required name="password" type="password" placeholder="Пароль">
+					<input required type="text" name="email" placeholder="Ваш Email">
+					<input required name="password_repeat" type="password" placeholder="Повторите пароль"><br>
+				</div>
+				<textarea name="about" cols="30" rows="10" placeholder="О вас"></textarea>
+				<div class="driving_license">
+					<input name="driving_license" type="radio" value="yes"><span>Есть водительское удостоверение</span><br>
+					<input name="driving_license" type="radio" value="no" checked><span>Нет водительского удостоверения</span><br>
+				</div>
+				<div class="file_attach">
+					<input name="account_pic" type="text" placeholder="URL изображения">
+					<input type="button" value="Прикрепить файл">
+					</div>
+				<input id="account_register" type="submit" name="account_register" value="Зарегестрироваться">
+			</form>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

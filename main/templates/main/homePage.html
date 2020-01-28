@@ -1,0 +1,52 @@
+{% extends "main/wrapper.html" %}
+
+{% block title %}CityBee Race: Home Page{% endblock %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="fast_functions">
+		<div class="function">
+			<div class="img_background">
+				<div id="function_img_1" class="img"></div>
+			</div>
+			<div class="content">
+				<div class="info">
+					<h2>Сделай ствою ставку</h2>
+					<p>Сделай ставку на одного из гоньщиков. И получи свой выиграш в соответствии с указаным коофицентом.</p>
+				</div>
+				<div class="btn"><a href="{% url 'bets' %}">Сделать ставку</a></div>
+			</div>
+		</div>
+		<div class="function">
+			<div class="img_background">
+				<div id="function_img_2" class="img"></div>
+			</div>
+			<div class="content">
+				<div class="info">
+					<h2>Зарегестрируйся на гонку</h2>
+					<p>Зарегестрируйся на гонку и прими участи в гонках полных адреналина и эмоций. </p>
+				</div>
+				<div class="btn"><a href="{% url 'register' %}">Регистрация</a></div>
+			</div>
+		</div>
+		<div class="function">
+			<div class="img_background">
+				<div id="function_img_3" class="img"></div>
+			</div>
+			<div class="content">
+				<div class="info">
+					<h2>Ознакомься со списоком гоньщиков</h2>
+					<p>Ознакомься со списком гоньщиков и выбери совего фаворита. За кого болешь ты?</p>
+				</div>
+				<div class="btn"><a href="{% url 'drivers' %}">Подробнее</a></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

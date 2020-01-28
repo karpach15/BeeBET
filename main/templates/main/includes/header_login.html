@@ -1,0 +1,16 @@
+{% block content %}
+<div class="account_pic_url">{{account_pic}}</div>
+<header>
+	<menu>
+		<div class="btns">
+			<a href="{% url 'index' %}" class="menu_btn">Главная</a>
+			<a href="{% url 'drivers' %}" class="menu_btn">Гонщики</a>
+			<a href="{% url 'bets' %}" class="menu_btn">Ставка</a>
+			<a href="{% url 'races' %}" class="menu_btn">Гонки</a>
+			<a href="{% url 'login' %}" id="profile" class="menu_btn active">Профиль</a>
+		</div>
+		<div class="profile"></div>
+	</menu>
+</header>
+
+{% endblock %}

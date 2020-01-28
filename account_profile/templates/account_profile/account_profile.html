@@ -1,0 +1,108 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+{% if user.is_authenticated %}
+	<header class="account_header">
+		<div class="pic_block">
+			<div class="img_border">
+				<div class="account_img" style="background: url({{user_info.account_pic}}) no-repeat center top / cover"></div>
+			</div>
+			<a href="{% url 'logout' %}"><div class="exit">Выйти</div></a>
+		</div>
+		<div class="account_fullname">
+			<h2 class="name">{{user_info.account_name}}</h2>
+			<h2 class="surname">{{user_info.account_surname}}</h2>
+		</div>
+	</header>
+	<section class="account_info">
+		<div class="pair">
+			<div class="info">
+				<div class="main">
+					<h3 id="races_participated">Участий в гонках: <span>{{user_info.races_participated}}</span></h3>
+					<h3 id="races_won">Гонок выигранно: <span>{{user_info.races_won}}</span></h3>
+					<h3 id="reg_date">Дата регистрации: <span>{{user_info.account_create_date|date:"d-M-Y"}}</span></h3>
+				</div>
+			</div>
+			<div class="about">
+				<h4>О гонщике:</h4>
+				<p>{{user_info.about}}</p>
+				<a class="edit"></a>
+			</div>
+		</div>
+		<div class="pair">
+			<div class="upcoming_races">
+				<h4>Гонки с моим участием:</h4>
+				{% for race in upcoming_races %}
+					<p>{{race}}</p>
+				{% endfor %}
+				<h4 style="margin-bottom: 20px">Прошедшие:</h4>
+				{% for race in races_past %}
+					<p>{{race}} <span>Прошла</span></p>
+				{% endfor %}
+			</div>
+			<div class="transaction_history">
+				<h4>История сделок:</h4>
+				{% for transaction in transactions %}
+					<p>{{transaction.bet_date|date:"d,m,y H:i"}} ({{transaction.bet_code}}) {{transaction.stake}} евро на победу гоньщика {{transaction.name}} с коэфицентом {{transaction.coeficient}}
+					{% if transaction.payment_method == 'cash' %}
+						<span class="payment_method">Наличными</span>
+					{% endif %}
+					{% if transaction.payment_method == 'card' %}
+						<span class="payment_method">Денежный перевод</span>
+					{% endif %}
+	
+					{% if transaction.won == 'None' %}
+						<span class="won">Ожидание результатов</span>
+					{% endif %}
+					{% if transaction.won == 'Won' %}
+						<span class="won">Победа</span>
+					{% endif %}
+					{% if transaction.won == 'Lost' %}
+						<span class="won">Проиграш</span>
+					{% endif %}
+
+					{% if transaction.status == 'True' %}
+						<span class="status">Подтверждена</span>
+					{% endif %}
+					{% if transaction.status == 'False' %}
+						<span class="status">Не подтверждена</span>
+					{% endif %}
+					</p>
+					<br>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="popUp">
+			<div class="pop_cont">
+				<div class="content">
+					<div class="close">+</div>
+					<div class="edit_form">
+						<form method="post" action="edit/">
+							{% csrf_token %}
+							<textarea name="about" placeholder="О вас...">{{user_info.about}}</textarea>
+							<button type="submit">Изменить</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% else %}
+	<header class="no_user">
+		<div class="info">
+			<h1>Вы не авторизованны. Войдите в свой аккаунт или создайте новый.</h1>
+			<a href="{% url 'login' %}"><input id="login" value="Войти в свой аккаунт"></a>
+			<a href="{% url 'register' %}"><input id="account_create" value="Создать аккаунт"></a>
+		</div>
+	</header>
+	<section>
+		
+	</section>
+{% endif %}
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

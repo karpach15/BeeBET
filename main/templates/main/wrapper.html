@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}CityBee Race{% endblock %}</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/media-queries.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Jura|Sulphur+Point&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}" ></script>'
+</head>
+<body>
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

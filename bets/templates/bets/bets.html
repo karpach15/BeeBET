@@ -1,0 +1,33 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="races_for_bets">
+		{% for race in races_list %}
+			{% if race.race_past == 'False' %}
+				<form action="{% url 'bet_confirm' %}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="race_name" value="{{race.race_name}}">
+					<button style="border: none; background: transparent;" type="submit">
+						<div class="race_for_bets">
+							<div class="img_background">
+								<div class="img"></div>
+							</div>
+							<div class="info">
+								<h2>{{race.race_name}}</h2>
+								<h2>До гонки:<br><span style="color: #9498F3;">{{race.time_before_race}}</span></h2>
+							</div>
+						</div>
+					</button>
+				</form>
+			{% endif %}
+		{% endfor %}
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

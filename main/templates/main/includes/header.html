@@ -1,0 +1,34 @@
+{% block content %}
+<div class="account_pic_url"></div>
+<header>
+	<menu>
+		<div class="btns">
+			<a href="{% url 'index' %}" class="menu_btn {% if page == 'main' %}active{% endif %}">Главная</a>
+			<a href="{% url 'drivers' %}" class="menu_btn {% if page == 'drivers' %}active{% endif %}">Гонщики</a>
+			<a href="{% url 'bets' %}" class="menu_btn {% if page == 'bets' %}active{% endif %}">Ставка</a>
+			<a href="{% url 'races' %}" class="menu_btn {% if page == 'races' %}active{% endif %}">Гонки</a>
+			<a href="{% url 'account_profile' %}" id="profile" class="menu_btn {% if page == 'account_profile' %}active{% endif %}">Профиль</a>
+		</div>
+		<a href="{% url 'account_profile' %}"><div class="profile" style='background: url({{user_info.account_pic}}) no-repeat center top / cover'></div></a>
+		<p display="none" class="account_pic_url">{{user_info.account_pic}}</p>
+	</menu>
+	{% if notification != False %}
+		<div class="notification">
+			<div class="info">
+				<h1>
+					Результаты первой гонки на Fiat 500 от CityBee
+				</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, soluta! Aliquid recusandae itaque inventore aspernatur harum, alias, nihil accusamus sunt error, praesentium, ab ipsum commodi totam nisi voluptatibus modi at?
+				</p>
+			</div>
+			<div class="img_border">
+				<div class="img">
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	
+</header>
+
+{% endblock %}

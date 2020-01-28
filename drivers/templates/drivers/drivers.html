@@ -1,0 +1,69 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="drivers">
+		{% for driver in drivers_list %}
+			{% if driver.status == 'True' %}
+				{% for info in accounts_info %}
+					{% if info.login == driver.login %}
+						<div class="driver {{driver.status}}">
+							<div class="img_background">
+								<div id="profilePic" class="img" style="background: url({{info.account_pic}}) no-repeat center top / cover"></div>
+							</div>
+							<div class="info">
+								<h2 id="name">{{info.account_name}}</h2>
+								<h2 id="surname">{{info.account_surname}}</h2>
+							</div>
+							<div class="description">
+								<h3 id="races_participated">{{info.races_participated}}</h3>
+								<h3 id="races_won">{{info.races_won}}</h3>
+								<h3 id="reg_date">{{driver.reg_date|date:"d-M-Y"}}</h3>
+								<p id="about">{{info.about}}</p>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endfor %}
+		<a href="register/"><div id="driver_reg" class="driver">
+			<div class="driver_reg_img"></div>
+		</div></a>
+	</div>
+	<div class="popUp">
+		<div class="pop_cont">
+			<div class="content">
+				<div class="close">+</div>
+				<div class="driver_details">
+					<div class="header">
+						<div class="img_background">
+							<div class="img"></div>
+						</div>
+						<div class="name">
+							<h2 id="name"></h2>
+							<h2 id="surname"></h2>		
+						</div>
+					</div>
+					<div class="info">
+						<div class="main">
+							<h3 id="races_participated">Участий в гонках: <span></span></h3>
+							<h3 id="races_won">Гонок выигранно: <span></span></h3>
+							<h3 id="reg_date">Дата регистрации: <span></span></h3>
+						</div>
+						<div class="about">
+							<h4>О гонщике:</h4>
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

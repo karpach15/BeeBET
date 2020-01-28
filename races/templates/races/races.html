@@ -1,0 +1,105 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<h1>Предстоящие гонки</h1>
+	<div class="races">
+		{% for race in races_list %}
+			{% if race.race_past == 'False' %}
+				<div class="race_name">{{race.race_name}}</div>
+				<div class="race">
+					<div class="info">
+						<div>
+							<h3>Датаи время гонки: <span>{{race.time_date|date:"d-M-Y H:i"}}</span></h3>
+							<h3>Старт: <span>{{race.start}}</span></h3>
+							<h3>Финиш: <span>{{race.finish}}</span></h3>
+							<h3>Растояние: <span>{{race.distance}} km</span></h3>
+							<h3>Минимальная ставка: <span>{{race.min_stake}}€</span></h3>
+							<h3>Текущий фонд гонки: <span>{{race.jackpot}}€</span></h3>
+						</div>
+						<div>
+							<h3>Разрешённые автомобили: <span>{{race.allowed_cars}}</span></h3>
+							<h3>Количество гоньщиков: <span>{{race.drivers}}</span></h3>
+							<h3>Количество ставок: <span>{{race.stakes}}</span></h3>
+							<br>
+							<h5 id="time_before_race">До гонки: {{race.time_before_race}}</h5>
+							<h3 class="drivers_list_btn">Список гонщиков
+								<div id="driver_list" style="display: none">
+									{{race.driver_list}}
+								</div>
+							</h3>
+							{% if user_info.account_name in race.driver_list %}
+								<h3 id="registered_for_race">Вы зарегестрированны</h3>
+							{% endif %}
+							{% if user_info.account_surname not in race.driver_list %}
+								<form method="post" action="register/">
+									{% csrf_token %}
+									<input name="name" style="display: none" type="text" value="{{race.race_name}}">
+									<button type="submit" id="reg_for_race">Зарегестрироваться</button>
+								</form>
+							{% endif %}
+						</div>
+					</div>
+					<div class="img_border">
+						<div class="img"></div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+
+	<h1>Прошедшие гонки</h1>
+	<div class="races">
+		{% for race in races_list %}
+			{% if race.race_past == 'True' %}
+				<div class="race_name">{{race.race_name}}</div>
+				<div class="race">
+					<div class="info">
+						<div>
+							<h3>Датаи время гонки: <span>{{race.time_date|date:"d-M-Y H:i"}}</span></h3>
+							<h3>Старт: <span>{{race.start}}</span></h3>
+							<h3>Финиш: <span>{{race.finish}}</span></h3>
+							<h3>Растояние: <span>{{race.distance}} km</span></h3>
+							<h3>Минимальная ставка: <span>{{race.min_stake}}€</span></h3>
+							<h3>Фонд гонки: <span>{{race.jackpot}}€</span></h3>
+							<h3>Победитель: <span>{{race.winner}}</span></h3>
+						</div>
+						<div>
+							<h3>Разрешённые автомобили: <span>{{race.allowed_cars}}</span></h3>
+							<h3>Количество гоньщиков: <span>{{race.drivers}}</span></h3>
+							<h3>Количество ставок: <span>{{race.stakes}}</span></h3>
+							<br>
+							<h3 class="drivers_list_btn">Список гонщиков
+								<div id="driver_list" style="display: none">
+									{{race.driver_list}}
+								</div>
+							</h3>
+						</div>
+					</div>
+					<div class="img_border">
+						<div class="img"></div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+
+	<div class="popUp">
+		<div class="pop_cont">
+			<div class="content">
+				<div class="close">+</div>
+				<div class="race_details">
+					<div class="drivers_list">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

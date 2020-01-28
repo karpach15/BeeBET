@@ -1,0 +1,18 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+<div class="reg_result">
+	<div class="content">
+		<div class="img" style="background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png) no-repeat center top / cover;"></div>
+		<div class="info">
+			<p>
+				Упс. Похоже что-то пошло не так.<br>
+				Для регистрации у вас должно быть водительское удостоверение.
+			</p>
+		</div>
+		<a href="{% url 'drivers' %}"><input class="home_btn" type="button" value="Назад"></a>
+	</div>
+</div>
+
+{% endblock %}

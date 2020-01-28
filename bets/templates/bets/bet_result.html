@@ -1,0 +1,30 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+<div class="reg_result">
+	<div class="content">
+		<div class="img"></div>
+		<div class="info">
+			{% if payment_type == 'card' %}
+				<p>Вы успешно подали заявку на ставку, что <span>{{driver_name}}</span> выиграет гонку <span>{{race_name}}</span>. Для подтверждения ставки переведите <span>{{bet}}€</span> на счёт <span>{{bank_account_number}}</span> c пояснением <span>"{{bet_code}}"</span>.</p>
+			{% endif %}
+			{% if payment_type == 'cash' %}
+				<p>Вы успешно подали заявку на ставку, что <span>{{driver_name}}</span> выиграет гонку <span>{{race_name}}</span>. Для подтверждения ставки необходимо заплатить Марко Карпацу <span>{{bet}}€</span> наличными и указать код ставки <span>"{{bet_code}}"</span>.</p>
+			{% endif %}
+		</div>
+		<form class="accept_bet" action="accept/" method="POST" style="display: none">
+			{% csrf_token %}
+			<input name="driver_login" value="{{driver_name}}">
+			<input name="race_name" value="{{race_name}}">
+			<input name="coeficient" value="{{coeficient}}">
+			<input name="bet" value="{{bet}}">
+			<input name="payment_type" value="{{payment_type}}">
+			<input name="bank_account_number" value="{{bank_account_number}}">
+		</form>
+		<a style="cursor: default"><input class="home_btn submit" type="submit" value="Подвердить ставку"></a>
+		<a style="cursor: default" href="/bets/"><input class="home_btn decline" type="button" value="Отменить ставку"></a>
+	</div>
+</div>
+
+{% endblock %}

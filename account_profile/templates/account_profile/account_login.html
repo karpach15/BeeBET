@@ -1,0 +1,26 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+{% include "main/includes/header.html" %}
+
+<section>
+	<div class="login">
+		<div class="content">
+			<form action="{% url 'account_profile' %}" method="GET">
+				<div class="login_password">
+					<input name="login" type="text" placeholder="Логин">
+					<input name="password" type="password" placeholder="Пароль">
+				</div>
+				<div class="login_register">
+					<input id="login" type="submit" name="login_btn" value="Войти">
+					<a href="{% url 'register' %}"><input id="account_create" value="Создать аккаунт"></a>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+{% include "main/includes/footer.html" %}
+
+{% endblock %}

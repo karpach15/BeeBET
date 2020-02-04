@@ -5,11 +5,26 @@
 	<title>{% block title %}CityBee Race{% endblock %}</title>
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-	<link rel="stylesheet" href="{% static 'css/media-queries.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Jura|Sulphur+Point&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/main.js' %}" ></script>'
+	<script type="text/javascript" src="{% static 'js/main.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'js/media-queries.js' %}" ></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<style class="media_style">
+
+</style>
+<div class="style" style="display: none;">
+	menu{
+		height: 120px;
+	}
+	#time_before_race{
+		font-size: 25pt;
+	}
+	.info h2{
+		font-size: 20pt !important;
+	}
+</div>
 <body>
 	{% block content %}
 	{% endblock %}

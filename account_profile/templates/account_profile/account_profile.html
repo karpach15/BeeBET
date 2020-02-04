@@ -45,31 +45,53 @@
 			<div class="transaction_history">
 				<h4>История сделок:</h4>
 				{% for transaction in transactions %}
-					<p>{{transaction.bet_date|date:"d,m,y H:i"}} ({{transaction.bet_code}}) {{transaction.stake}} евро на победу гоньщика {{transaction.name}} с коэфицентом {{transaction.coeficient}}
+					<p>{{transaction.bet_date|date:"d,m,y H:i"}} ({{transaction.bet_code}}) {{transaction.stake}} евро на победу гоньщика {{transaction.winner_name}} с коэфицентом {{transaction.coeficient}}
 					{% if transaction.payment_method == 'cash' %}
-						<span class="payment_method">Наличными</span>
+						<div>
+							<i class="material-icons" style="color: #B0FF52">euro_symbol</i>
+							<span class="popup_text">Наличными</span>
+						</div>
 					{% endif %}
 					{% if transaction.payment_method == 'card' %}
-						<span class="payment_method">Денежный перевод</span>
+						<div>
+							<i class="material-icons" style="color: #B0FF52">credit_card</i>
+							<span class="popup_text">Денежный перевод</span>
+						</div>
 					{% endif %}
 	
 					{% if transaction.won == 'None' %}
-						<span class="won">Ожидание результатов</span>
+						<div>
+							<i class="material-icons" style="color: #FFF52E">history</i>
+							<span class="popup_text">Ожидание результатов</span>
+						</div>
 					{% endif %}
 					{% if transaction.won == 'Won' %}
-						<span class="won">Победа</span>
+						<div>
+							<i class="material-icons" style="color: #47FF6F">check_circle_outline</i>
+							<span class="popup_text">Победа</span>
+						</div>
 					{% endif %}
 					{% if transaction.won == 'Lost' %}
-						<span class="won">Проиграш</span>
+						<div>
+							<i class="material-icons" style="color: #FF615C">highlight_off</i>
+							<span class="popup_text">Проигрышь</span>
+						</div>
 					{% endif %}
 
 					{% if transaction.status == 'True' %}
-						<span class="status">Подтверждена</span>
+						<div>
+							<i class="material-icons" style="color: #47FF6F">assignment_turned_in</i>
+							<span class="popup_text">Ставка оплачена</span>
+						</div>
 					{% endif %}
 					{% if transaction.status == 'False' %}
-						<span class="status">Не подтверждена</span>
+						<div>
+							<i class="material-icons" style="color: #FF615C">assignment_late</i>
+							<span class="popup_text">Ожидание оплаты</span>
+						</div>
 					{% endif %}
 					</p>
+					<hr>
 					<br>
 				{% endfor %}
 			</div>

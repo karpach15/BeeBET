@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Account_profile
 from bets.models import Stake
 from races.models import Race
@@ -12,7 +12,7 @@ def account_profile(request):
 		current_user = request.user.username
 		current_user_info = Account_profile.objects.get(login = current_user)
 	else:
-		current_user_info = []
+		return redirect('/accounts/login')
 
 	races_list = Race.objects.order_by('-time_date')
 	races_participated = 0
@@ -36,7 +36,6 @@ def account_profile(request):
 
 		current_user_info = Account_profile.objects.get(login = current_user)
 
-	# transactions = Account_profile.objects.get(login = current_user_info.login).transaction_history.split('|')
 	transactions = Stake.objects.filter(name = current_user_info.account_name + ' ' + current_user_info.account_surname).order_by('-bet_date')
 
 	return render(request, 'account_profile/account_profile.html', {

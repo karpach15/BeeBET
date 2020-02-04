@@ -5,7 +5,7 @@ from account_profile.models import Account_profile
 from django.http import HttpResponse
 
 def drivers(request):
-	drivers_list = Drivers.objects.order_by('-reg_date')
+	drivers_list = Drivers.objects.order_by('reg_date')
 	if request.user.is_authenticated:
 		current_user = request.user.username
 		current_user_info = Account_profile.objects.get(login = current_user)

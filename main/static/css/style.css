@@ -109,6 +109,24 @@ menu .btns{
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
 }
 
+menu .btns_media{
+	transform: translateY(13px);
+	width: 80%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+}
+
+menu .btns_media a i{
+	font-size: 50px;
+	padding-top: 15px;
+}
+
+menu .btns_media a img{
+	height: 50px;
+	padding-top: 15px;
+}
+
 .menu_btn{
 	color: #90E48F;
 	font-size: 35pt;
@@ -1148,7 +1166,7 @@ textarea{
 	grid-template-columns: 500px 1fr;
 	grid-gap: 20px;
 	margin-top: 20px;
-	height: 430px;
+	height: 50%;
 	background: linear-gradient(135deg, #F0E85F, #B3F076);
 	border-radius: 30px;
 	padding: 15px;
@@ -1394,7 +1412,7 @@ footer::before{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 50px;
-	min-height: 350px;
+	height: 550px;
 }
 
 .account_info .info{
@@ -1529,6 +1547,7 @@ footer::before{
 	padding-left: 15px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	overflow: auto;
 }
 
 .upcoming_races p{
@@ -1555,6 +1574,7 @@ footer::before{
 	padding-left: 15px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	overflow: auto;
 }
 
 .transaction_history p{
@@ -1562,39 +1582,29 @@ footer::before{
 	margin-bottom: 25px;
 }
 
-.transaction_history .payment_method{
-	display: block;
-	background: #C9E4E0;
-	border-radius: 30px;
-	font-size: 16pt;
-	width: 220px;
-	color: #E46D3F;
-	text-align: center;
+.transaction_history i{
+	cursor: default;
 }
 
-.transaction_history .won{
-	position: absolute;
-	bottom: 0;
-	right: 50%;
-	transform: translateX(50%);
-	display: block;
-	background: #A3A5DB;
-	border-radius: 30px;
-	font-size: 16pt;
-	width: 280px;
-	color: #77FF82;
-	text-align: center;
+.transaction_history div{
+	position: relative;
+	display: inline-block;
 }
 
-.transaction_history .status{
-	position: absolute;
-	bottom: 0;
-	right: 15px;
-	display: block;
-	background: #DBC896;
-	border-radius: 30px;
-	font-size: 16pt;
-	width: 220px;
-	color: #DB2F35;
+.transaction_history div .popup_text{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
 	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	top: -70px;
+	left: 0;
+	z-index: 1;
+}
+
+.transaction_history div:hover .popup_text{
+	visibility: visible;
 }

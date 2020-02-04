@@ -9,6 +9,14 @@
 			<a href="{% url 'races' %}" class="menu_btn {% if page == 'races' %}active{% endif %}">Гонки</a>
 			<a href="{% url 'account_profile' %}" id="profile" class="menu_btn {% if page == 'account_profile' %}active{% endif %}">Профиль</a>
 		</div>
+		{% load static %}
+		<div class="btns_media" style="display: none;">
+			<a href="{% url 'index' %}" class="menu_btn {% if page == 'main' %}active{% endif %}"><i class="material-icons">home</i></a>
+			<a href="{% url 'drivers' %}" class="menu_btn {% if page == 'drivers' %}active{% endif %}"><img src="{% static 'main/img/helmet.png' %}"></a>
+			<a href="{% url 'bets' %}" class="menu_btn {% if page == 'bets' %}active{% endif %}"><i class="material-icons">attach_money</i></a>
+			<a href="{% url 'races' %}" class="menu_btn {% if page == 'races' %}active{% endif %}"><i class="material-icons">directions</i></a>
+			<a href="{% url 'account_profile' %}" id="profile" class="menu_btn {% if page == 'account_profile' %}active{% endif %}"><i class="material-icons">account_circle</i></a>
+		</div>
 		<a href="{% url 'account_profile' %}"><div class="profile" style='background: url({{user_info.account_pic}}) no-repeat center top / cover'></div></a>
 		<p display="none" class="account_pic_url">{{user_info.account_pic}}</p>
 	</menu>

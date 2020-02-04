@@ -4,6 +4,11 @@ jQuery('document').ready(function(){
 
 	$('.driver:not(#driver_reg)').click(function(){
 		$('.popUp').css('display', 'block');
+
+		var pop_up = $('.popUp .driver_details').height();
+		var pop_up = pop_up - 350 + 'px';
+		$('.popUp .info').css('height', pop_up);
+
 		var driverName = $(this).find('#name').text();
 		var driverSurname = $(this).find('#surname').text();
 		var racesParticipated = $(this).find('#races_participated').text();

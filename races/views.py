@@ -70,6 +70,46 @@ def register(request):
 				drivers_amount = len(x)
 				drivers_registered += current_user_info.account_name + ' ' + current_user_info.account_surname + '|'
 
-				return redirect('/races')
+				return render(request, 'races/register.html', {'reg_list': drivers_registered, 'race_name': race_name})
 		else:
 			return redirect('/races')
+
+def accept(request):
+	if request.user.is_authenticated:
+		current_user = request.user.username
+		current_user_info = Account_profile.objects.get(login = current_user)
+	else:
+		current_user_info = []
+	
+	drivers_registered = request.POST['reg_list']
+	payment_type = request.POST['payment_type']
+	race_name = request.POST['race_name']
+	bank_account_number = 'EE302200221043383149'
+	prev_bet_code = Stake.objects.order_by('-bet_date')
+	bet = Race.objects.get(race_name = race_name).entery_price
+	
+	if prev_bet_code:
+		prev_bet_code = str(prev_bet_code[0])
+		prev_bet_code = prev_bet_code.split('#')
+		prev_bet_code = int(prev_bet_code[-1])
+		prev_bet_code += 1
+	else:
+		prev_bet_code = 1
+	bet_code = 'Race_registration! #' + str(prev_bet_code)
+	
+	Race.objects.filter(race_name = race_name).update(driver_list = drivers_registered)
+	
+	Stake(
+		name = current_user_info.account_name + ' ' + current_user_info.account_surname,
+		winner_name = current_user_info.account_name + ' ' + current_user_info.account_surname,
+		race_name = race_name,
+		payment_method = payment_type,
+		coeficient = 0,
+		stake = bet,
+		bank_account_number = bank_account_number,
+		bet_code = bet_code,
+		bet_date = timezone.now(),
+		status = 'False'
+		).save()
+
+	return redirect('/races')

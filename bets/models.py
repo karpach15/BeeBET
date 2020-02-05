@@ -40,6 +40,7 @@ class Stake(models.Model):
 	won = models.CharField(max_length = 10, choices = WON, default = 'None')
 	status_won = models.CharField(max_length = 10, choices = STATUS, default = 'None')
 	status = models.CharField(max_length = 10, choices = STATUS, default = 'False')
+	jackpot = models.FloatField(default = 0)
 
 	def __str__(self):
 		return self.bet_code

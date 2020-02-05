@@ -1,0 +1,24 @@
+{% extends "main/wrapper.html" %}
+
+{% block content %}
+
+<div class="reg_result">
+	<div class="content">
+		<div class="img"></div>
+		<div class="info">
+			<p>Вы уверены, что хотите подтвердить регистрацию. Для регистрациии необходимо сдлать ставку 5 евро на себя! Выберите способ оплаты (наличные/денежный перевод)</p>
+		</div>
+		<form class="reg_accept" action="accept/" method="POST">
+			{% csrf_token %}
+			<input class="radio" type="radio" name="payment_type" value="card"><span>Денежный перевод</span>
+			<br>
+			<input class="radio" type="radio" name="payment_type" value="cash"><span>Наличные</span>
+			<input type="hidden" name="reg_list" value="{{reg_list}}">
+			<input type="hidden" name="race_name" value="{{race_name}}">
+		</form>
+		<a style="cursor: default"><input class="home_btn submit" type="submit" value="Подвердить регистрацию"></a>
+		<a style="cursor: default" href="/races/"><input class="home_btn decline" type="button" value="Отменить регистрацию"></a>
+	</div>
+</div>
+
+{% endblock %}

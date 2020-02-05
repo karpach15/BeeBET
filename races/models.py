@@ -4,6 +4,7 @@ from account_profile.models import Account_profile
 
 class Race(models.Model):
 	RACE_PAST = [('True', 'True'), ('False', 'False')]
+	OPENED = [('Closed', 'Closed'), ('Opened', 'Opened')]
 	drivers_list = Drivers.objects.order_by('-reg_date')
 	DRIVERS_LIST = []
 	DRIVERS_LIST.append(('None', 'None'),)
@@ -26,6 +27,8 @@ class Race(models.Model):
 	race_past = models.CharField(max_length = 5, choices = RACE_PAST, default = 'False')
 	allowed_cars = models.CharField(max_length = 100, default = 'no limits')
 	time_before_race = models.CharField(max_length = 100)
+	entery_price = models.FloatField(default = 5)
+	opened = models.CharField(max_length = 10, default = 'Closed', choices = OPENED)
 
 	def __str__(self):
 		return self.race_name

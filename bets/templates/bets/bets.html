@@ -8,6 +8,7 @@
 	<div class="races_for_bets">
 		{% for race in races_list %}
 			{% if race.race_past == 'False' %}
+				{% if race.opened == 'Opened' %}
 				<form action="{% url 'bet_confirm' %}" method="POST">
 					{% csrf_token %}
 					<input type="hidden" name="race_name" value="{{race.race_name}}">
@@ -23,6 +24,7 @@
 						</div>
 					</button>
 				</form>
+				{% endif %}
 			{% endif %}
 		{% endfor %}
 	</div>

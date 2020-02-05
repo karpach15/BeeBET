@@ -27,6 +27,13 @@ def account_profile(request):
 				upcoming_races.append(race.race_name + ' (' + race.time_date.strftime("%d-%B-%Y %H:%M") + ')')
 			Account_profile.objects.filter(login = current_user_info.login).update(races_participated = races_participated)
 
+	stakes = Stake.objects.all()
+	jackpot = 0
+	for stake in stakes:
+		if stake.bet_code[:17] == 'Race_registration':
+			jackpot += stake.stake
+			Stake.objects.filter(bet_code = stake.bet_code).update(jackpot = jackpot)
+
 	races_won = 0
 	if current_user_info != []:
 		for race in races_list:
@@ -44,7 +51,7 @@ def account_profile(request):
 		'notification': False,
 		'upcoming_races': upcoming_races,
 		'races_past': races_past,
-		'transactions': transactions})
+		'transactions': transactions,})
 
 
 def register(request):

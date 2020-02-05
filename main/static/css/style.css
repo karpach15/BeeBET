@@ -50,6 +50,27 @@ h3{
 	margin: 0;
 }
 
+::-webkit-scrollbar{
+	background: transparent;
+}
+
+::-webkit-scrollbar-track{
+	background: #eee;
+	border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb{
+	background: #CFFA93;
+	border-radius: 30px;
+	transition: 0.4s;
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background: #26ABD8;
+	border-radius: 30px;
+	transition: 0.4s;
+}
+
 input, textarea{
 	border: none;
 	border-bottom: solid 5px #F05F50;
@@ -1607,4 +1628,23 @@ footer::before{
 
 .transaction_history div:hover .popup_text{
 	visibility: visible;
+}
+
+.reg_accept{
+	width: 70%;
+	margin: 0 auto;
+}
+
+.reg_accept .radio{
+	height: 25px;
+	width: 25px;
+	display: inline;
+}
+
+.reg_accept span{
+	font-size: 28pt;
+}
+
+.reg_result .home_btn{
+	width: 450px;
 }

@@ -45,50 +45,87 @@
 			<div class="transaction_history">
 				<h4>История сделок:</h4>
 				{% for transaction in transactions %}
-					<p>{{transaction.bet_date|date:"d,m,y H:i"}} ({{transaction.bet_code}}) {{transaction.stake}} евро на победу гоньщика {{transaction.winner_name}} с коэфицентом {{transaction.coeficient}}
-					{% if transaction.payment_method == 'cash' %}
-						<div>
-							<i class="material-icons" style="color: #B0FF52">euro_symbol</i>
-							<span class="popup_text">Наличными</span>
-						</div>
+					{% if transaction.coeficient == 0 %}
+						<p>{{transaction.bet_date|date:"d,m,y H:i"}} ({{transaction.bet_code}}) {{transaction.stake}} евро на свою победу с общим выигрышем {{transaction.jackpot}}
+						{% if transaction.payment_method == 'cash' %}
+							<div>
+								<i class="material-icons" style="color: #B0FF52">euro_symbol</i>
+								<span class="popup_text">Наличными</span>
+							</div>
+						{% endif %}
+						{% if transaction.payment_method == 'card' %}
+							<div>
+								<i class="material-icons" style="color: #B0FF52">credit_card</i>
+								<span class="popup_text">Денежный перевод</span>
+							</div>
+						{% endif %}
+		
+						{% if transaction.won == 'None' %}
+							<div>
+								<i class="material-icons" style="color: #FFF52E">history</i>
+								<span class="popup_text">Ожидание результатов</span>
+							</div>
+						{% endif %}
+						{% if transaction.won == 'Won' %}
+							<div>
+								<i class="material-icons" style="color: #47FF6F">check_circle_outline</i>
+								<span class="popup_text">Победа</span>
+							</div>
+						{% endif %}
+						{% if transaction.won == 'Lost' %}
+							<div>
+								<i class="material-icons" style="color: #FF615C">highlight_off</i>
+								<span class="popup_text">Проигрышь</span>
+							</div>
+						{% endif %}
 					{% endif %}
-					{% if transaction.payment_method == 'card' %}
-						<div>
-							<i class="material-icons" style="color: #B0FF52">credit_card</i>
-							<span class="popup_text">Денежный перевод</span>
-						</div>
-					{% endif %}
-	
-					{% if transaction.won == 'None' %}
-						<div>
-							<i class="material-icons" style="color: #FFF52E">history</i>
-							<span class="popup_text">Ожидание результатов</span>
-						</div>
-					{% endif %}
-					{% if transaction.won == 'Won' %}
-						<div>
-							<i class="material-icons" style="color: #47FF6F">check_circle_outline</i>
-							<span class="popup_text">Победа</span>
-						</div>
-					{% endif %}
-					{% if transaction.won == 'Lost' %}
-						<div>
-							<i class="material-icons" style="color: #FF615C">highlight_off</i>
-							<span class="popup_text">Проигрышь</span>
-						</div>
-					{% endif %}
+					
+					{% if transaction.coeficient != 0 %}
+						<p>{{transaction.bet_date|date:"d,m,y H:i"}} ({{transaction.bet_code}}) {{transaction.stake}} евро на победу гоньщика {{transaction.winner_name}} с коэфицентом {{transaction.coeficient}}
+						{% if transaction.payment_method == 'cash' %}
+							<div>
+								<i class="material-icons" style="color: #B0FF52">euro_symbol</i>
+								<span class="popup_text">Наличными</span>
+							</div>
+						{% endif %}
+						{% if transaction.payment_method == 'card' %}
+							<div>
+								<i class="material-icons" style="color: #B0FF52">credit_card</i>
+								<span class="popup_text">Денежный перевод</span>
+							</div>
+						{% endif %}
+		
+						{% if transaction.won == 'None' %}
+							<div>
+								<i class="material-icons" style="color: #FFF52E">history</i>
+								<span class="popup_text">Ожидание результатов</span>
+							</div>
+						{% endif %}
+						{% if transaction.won == 'Won' %}
+							<div>
+								<i class="material-icons" style="color: #47FF6F">check_circle_outline</i>
+								<span class="popup_text">Победа</span>
+							</div>
+						{% endif %}
+						{% if transaction.won == 'Lost' %}
+							<div>
+								<i class="material-icons" style="color: #FF615C">highlight_off</i>
+								<span class="popup_text">Проигрышь</span>
+							</div>
+						{% endif %}
 
-					{% if transaction.status == 'True' %}
-						<div>
-							<i class="material-icons" style="color: #47FF6F">assignment_turned_in</i>
-							<span class="popup_text">Ставка оплачена</span>
-						</div>
-					{% endif %}
-					{% if transaction.status == 'False' %}
-						<div>
-							<i class="material-icons" style="color: #FF615C">assignment_late</i>
-							<span class="popup_text">Ожидание оплаты</span>
-						</div>
+						{% if transaction.status == 'True' %}
+							<div>
+								<i class="material-icons" style="color: #47FF6F">assignment_turned_in</i>
+								<span class="popup_text">Ставка оплачена</span>
+							</div>
+						{% endif %}
+						{% if transaction.status == 'False' %}
+							<div>
+								<i class="material-icons" style="color: #FF615C">assignment_late</i>
+								<span class="popup_text">Ожидание оплаты</span>
+							</div>
+						{% endif %}
 					{% endif %}
 					</p>
 					<hr>

@@ -13,7 +13,7 @@
 				<div class="race">
 					<div class="info">
 						<div>
-							<h3>Датаи время гонки: <span>{{race.time_date|date:"d-M-Y H:i"}}</span></h3>
+							<h3>Дата и время гонки: <span>{{race.time_date|date:"d-M-Y H:i"}}</span></h3>
 							<h3>Старт: <span>{{race.start}}</span></h3>
 							<h3>Финиш: <span>{{race.finish}}</span></h3>
 							<h3>Растояние: <span>{{race.distance}} km</span></h3>
@@ -24,6 +24,7 @@
 							<h3>Разрешённые автомобили: <span>{{race.allowed_cars}}</span></h3>
 							<h3>Количество гоньщиков: <span>{{race.drivers}}</span></h3>
 							<h3>Количество ставок: <span>{{race.stakes}}</span></h3>
+							<h3>Плата за регистрацию: <span>{{race.entery_price}}€</span></h3>
 							<br>
 							<h5 id="time_before_race">До гонки: {{race.time_before_race}}</h5>
 							<h3 class="drivers_list_btn">Список гонщиков
@@ -59,7 +60,7 @@
 				<div class="race">
 					<div class="info">
 						<div>
-							<h3>Датаи время гонки: <span>{{race.time_date|date:"d-M-Y H:i"}}</span></h3>
+							<h3>Дата и время гонки: <span>{{race.time_date|date:"d-M-Y H:i"}}</span></h3>
 							<h3>Старт: <span>{{race.start}}</span></h3>
 							<h3>Финиш: <span>{{race.finish}}</span></h3>
 							<h3>Растояние: <span>{{race.distance}} km</span></h3>
@@ -71,6 +72,7 @@
 							<h3>Разрешённые автомобили: <span>{{race.allowed_cars}}</span></h3>
 							<h3>Количество гоньщиков: <span>{{race.drivers}}</span></h3>
 							<h3>Количество ставок: <span>{{race.stakes}}</span></h3>
+							<h3>Плата за регистрацию: <span>{{race.entery_price}}€</span></h3>
 							<br>
 							<h3 class="drivers_list_btn">Список гонщиков
 								<div id="driver_list" style="display: none">

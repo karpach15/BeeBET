@@ -110,6 +110,10 @@ jQuery('document').ready(function(){
 		$('.accept_bet').submit();
 	});
 
+	$('.reg_result .submit').click(function(){
+		$('.reg_accept').submit();
+	});
+
 	$('.race').ready(function(){
 		time = $('#time_before_race').text();
 

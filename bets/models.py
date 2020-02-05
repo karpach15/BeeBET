@@ -26,7 +26,7 @@ class Stake(models.Model):
 
 	STATUS = [('True', 'True'),('False', 'False')]
 
-	WON = [('None', 'None'),('Won', 'Won'),('Lost', 'Lost')]
+	WON = [('Waiting', 'Waiting'),('Won', 'Won'),('Lost', 'Lost')]
 
 	bet_code = models.CharField(max_length = 300, default = 'Bzz! #0000')
 	name = models.CharField(max_length = 50, choices = USERS_CHOICES)
@@ -38,7 +38,7 @@ class Stake(models.Model):
 	bank_account_number = models.CharField(max_length = 300, default = 'EE302200221043383149')
 	bet_date = models.DateTimeField(default = timezone.now)
 	won = models.CharField(max_length = 10, choices = WON, default = 'None')
-	status_won = models.CharField(max_length = 10, choices = STATUS, default = 'None')
+	status_won = models.CharField(max_length = 10, choices = STATUS, default = 'False')
 	status = models.CharField(max_length = 10, choices = STATUS, default = 'False')
 	jackpot = models.FloatField(default = 0)
 

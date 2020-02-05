@@ -37,6 +37,15 @@ def account_profile(request):
 	races_won = 0
 	if current_user_info != []:
 		for race in races_list:
+			for stake in Stake.objects.filter(race_name = race.race_name):
+				if race.time_date < timezone.now():
+					if current_user_info.account_name in race.winner:
+						Stake.objects.filter(bet_code = stake.bet_code).update(won = 'Won')
+					else:
+						Stake.objects.filter(bet_code = stake.bet_code).update(won = 'Lost')
+				else:
+					Stake.objects.filter(bet_code = stake.bet_code).update(won = 'Waiting')
+
 			if current_user_info.account_name in race.winner:
 				races_won += 1
 			Account_profile.objects.filter(login = current_user_info.login).update(races_won = races_won)
@@ -44,7 +53,6 @@ def account_profile(request):
 		current_user_info = Account_profile.objects.get(login = current_user)
 
 	transactions = Stake.objects.filter(name = current_user_info.account_name + ' ' + current_user_info.account_surname).order_by('-bet_date')
-
 	return render(request, 'account_profile/account_profile.html', {
 		'page': 'account_profile', 
 		'user_info': current_user_info, 

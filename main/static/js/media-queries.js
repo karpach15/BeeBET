@@ -5,8 +5,10 @@ jQuery('document').ready(function(){
 		$('.btns').css('display', 'none');
 		$('.btns_media').css('display', 'grid');
 		$('.btns_media .active img').attr('src', '/static/main/img/helmet_active.png');
-			var pop_up = $('.popUp .driver_details').height();
-			var pop_up = pop_up - 350 + 'px';
-			$('.popUp .info').css('height', pop_up);
+		var pop_up = $('.popUp .driver_details').height();
+		var pop_up = pop_up - 350 + 'px';
+		$('.popUp .info').css('height', pop_up);
+
+		$('.notification .img_border').appendTo('.notification .info');
 	}
 });

@@ -1173,15 +1173,6 @@ textarea{
 	color: white;
 }
 
-.driver_details .name h2:nth-child(2n)::after{
-	content: '';
-	display: block;
-	height: 3px;
-	width: 98%;
-	border-radius: 30px;
-	background: linear-gradient(160deg, #E46292, #F05F50)
-}
-
 .driver_details .info{
 	display: grid;
 	grid-template-columns: 500px 1fr;

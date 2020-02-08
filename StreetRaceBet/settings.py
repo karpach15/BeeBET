@@ -124,8 +124,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
+STATICFILES_URL = [
+    os.path.join(BASE_DIR, 'StreetRaceBet/static')
+]
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'account_profile'
 LOGOUT_REDIRECT_URL = '/'

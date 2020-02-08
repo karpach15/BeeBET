@@ -7,7 +7,7 @@
 <section>
 	<div class="register">
 		<div class="content">
-			<form action="{% url 'register' %}" method="POST">{% csrf_token %}
+			<form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
 				<div class="name">
 					<input required name="account_name" type="text" placeholder="Имя">
 					<input required name="account_surname" type="text" placeholder="Фамилия">
@@ -25,8 +25,9 @@
 				</div>
 				<div class="file_attach">
 					<input name="account_pic" type="text" placeholder="URL изображения">
-					<input type="button" value="Прикрепить файл">
-					</div>
+					<input type="file" id="account_pic_file" name="account_pic_file" class="account_pic_file" value="Прикрепить файл">
+					<label for="account_pic_file">Прикрепить фотографию</label>
+				</div>
 				<input id="account_register" type="submit" name="account_register" value="Зарегестрироваться">
 			</form>
 		</div>

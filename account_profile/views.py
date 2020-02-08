@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.urls import include, path
+from django.core.files.storage import FileSystemStorage
 
 def account_profile(request):
 	if request.user.is_authenticated:
@@ -69,11 +70,18 @@ def register(request):
 	else:
 		current_user_info = []
 	if request.POST:
+		if request.FILES:
+			upload_file = request.FILES['account_pic_file']
+			fs = FileSystemStorage()
+			fs.save(upload_file.name, upload_file)
+			account_pic = '/media/' + upload_file.name
+		else:
+			account_pic = request.POST['account_pic']
+
 		account_name = request.POST['account_name']
 		account_surname = request.POST['account_surname']
 		login = request.POST['login']
 		password = request.POST['password']
-		account_pic = request.POST['account_pic']
 		password_repeat = request.POST['password_repeat']
 		email = request.POST['email']
 		about = request.POST['about']

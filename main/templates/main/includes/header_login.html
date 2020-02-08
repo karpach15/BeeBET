@@ -9,9 +9,10 @@
 			<a href="{% url 'races' %}" class="menu_btn">Гонки</a>
 			<a href="{% url 'login' %}" id="profile" class="menu_btn active">Профиль</a>
 		</div>
+		{% load static %}
 		<div class="btns_media" style="display: none;">
 			<a href="{% url 'index' %}" class="menu_btn"><i class="material-icons">home</i></a>
-			<a href="{% url 'drivers' %}" class="menu_btn"><i class="material-icons" style="position: absolute;bottom: 0; transform: translateX(-15px) scale(0.6)">drive_eta</i><i class="material-icons">person_pin</i></a>
+			<a href="{% url 'drivers' %}" class="menu_btn {% if page == 'drivers' %}active{% endif %}"><img src="{% static 'main/img/helmet.png' %}"></a>
 			<a href="{% url 'bets' %}" class="menu_btn"><i class="material-icons">attach_money</i></a>
 			<a href="{% url 'races' %}" class="menu_btn"><i class="material-icons">directions</i></a>
 			<a href="{% url 'account_profile' %}" id="profile" class="menu_btn active"><i class="material-icons">account_circle</i></a>

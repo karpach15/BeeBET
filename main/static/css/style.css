@@ -568,7 +568,7 @@ textarea{
 	display: grid;
 	width: 95%;
 	margin: 0 auto;
-	grid-template-columns: 2.5fr 1fr;
+	grid-template-columns: 1.5fr 1fr;
 	grid-gap: 60px;
 }
 
@@ -576,7 +576,7 @@ textarea{
 	width: 100%;
 }
 
-.file_attach input:nth-child(2){
+.file_attach label{
 	border: none;
 	padding: 0;
 	color: #fff;
@@ -584,10 +584,13 @@ textarea{
 	background: linear-gradient(160deg, #E46292, #F05F50);
 	border-radius: 30px;
 	transition: 0.5s;
+	text-align: center;
+	height: 50px;
+	transform: translateY(100%);
 	cursor: pointer;
 }
 
-.file_attach input:nth-child(2):hover{
+.file_attach label:hover{
 	color: #D9E13F;
 	transition: 0.5s;
 }
@@ -1641,4 +1644,13 @@ footer::before{
 
 .reg_result .home_btn{
 	width: 450px;
+}
+
+#account_pic_file{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }

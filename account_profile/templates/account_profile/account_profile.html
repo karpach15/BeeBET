@@ -8,6 +8,7 @@
 		<div class="pic_block">
 			<div class="img_border">
 				<div class="account_img" style="background: url({{user_info.account_pic}}) no-repeat center top / cover"></div>
+				<a class="edit"></a>
 			</div>
 			<a href="{% url 'logout' %}"><div class="exit">Выйти</div></a>
 		</div>
@@ -167,8 +168,31 @@
 				<div class="content">
 					<div class="close">+</div>
 					<div class="edit_form">
-						<form method="post" action="edit/">
+						<form method="post" action="edit/" enctype="multipart/form-data">
 							{% csrf_token %}
+							<div class="profile_img">
+								<input name="account_pic" type="text" placeholder="URl фотографии" value="{{user_info.account_pic}}">
+								<input type="file" id="account_pic_file" name="account_pic_file" class="account_pic_file" value="Прикрепить файл">
+								<label class="attach_img" for="account_pic_file">Прикрепить фотографию</label>
+							</div>
+							<div class="driving_license">
+								<label class="radio_container">Есть водительское удостоверение
+									{% if user_info.driving_license == 'True' %}
+										<input name="driving_license" type="radio" value="yes" checked>
+									{% else %}
+										<input name="driving_license" type="radio" value="yes">
+									{% endif %}
+									<span class="checkmark"></span>	
+								</label>
+								<label class="radio_container">Нет водительского удостоверения
+									{% if user_info.driving_license == 'True' %}
+										<input name="driving_license" type="radio" value="no">
+									{% else %}
+										<input name="driving_license" type="radio" value="no" checked>
+									{% endif %}
+									<span class="checkmark"></span>	
+								</label>
+							</div>
 							<textarea name="about" placeholder="О вас...">{{user_info.about}}</textarea>
 							<button type="submit">Изменить</button>
 						</form>

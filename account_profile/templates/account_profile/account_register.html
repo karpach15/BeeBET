@@ -20,13 +20,19 @@
 				</div>
 				<textarea name="about" cols="30" rows="10" placeholder="О вас"></textarea>
 				<div class="driving_license">
-					<input name="driving_license" type="radio" value="yes"><span>Есть водительское удостоверение</span><br>
-					<input name="driving_license" type="radio" value="no" checked><span>Нет водительского удостоверения</span><br>
+					<label class="radio_container">Есть водительское удостоверение
+						<input name="driving_license" type="radio" value="yes">
+						<span class="checkmark"></span>	
+					</label>
+					<label class="radio_container">Нет водительского удостоверения
+						<input name="driving_license" type="radio" value="no" checked>
+						<span class="checkmark"></span>	
+					</label>
 				</div>
 				<div class="file_attach">
 					<input name="account_pic" type="text" placeholder="URL изображения">
 					<input type="file" id="account_pic_file" name="account_pic_file" class="account_pic_file" value="Прикрепить файл">
-					<label for="account_pic_file">Прикрепить фотографию</label>
+					<label class="attach_img" for="account_pic_file">Прикрепить фотографию</label>
 				</div>
 				<input id="account_register" type="submit" name="account_register" value="Зарегестрироваться">
 			</form>

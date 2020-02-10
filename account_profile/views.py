@@ -131,8 +131,21 @@ def edit(request):
 		current_user = request.user.username
 		current_user_info = Account_profile.objects.get(login = current_user)
 
+		if request.FILES:
+			upload_file = request.FILES['account_pic_file']
+			fs = FileSystemStorage()
+			fs.save(upload_file.name, upload_file)
+			img = '/media/' + upload_file.name
+		else:
+			img = request.POST['account_pic']
+
+		if request.POST['driving_license'] == 'yes':
+			driving_license = 'True'
+		else:
+			driving_license = 'False'
+
 		about = request.POST['about']
-		Account_profile.objects.filter(login = current_user).update(about = about)
+		Account_profile.objects.filter(login = current_user).update(about = about, account_pic = img, driving_license = driving_license)
 	else:
 		current_user_info = []
 
